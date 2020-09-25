@@ -1,0 +1,52 @@
+MOTIVATION
+
+various super resolution applications
+"adapt image to screen resolution, compensate low resolution captors, rework old movies pictures or video games"
+reason is limited hardware performance
+level of satisfaction depends on the need 
+
+SR CATEGORIES 1
+
+discussing multiple SR methods studied over the past 20 years
+3 cateories "interpolation, reconstruction and exemplar based"
+
+INTERPOLATION BASED
+
+explain bilinear and bicubic
+show examples
+advantages and disadvantages
+already used in photoshop
+
+SR CATEGORIES 2
+
+insert TV regu and discuss it
+multiple regularization based methods
+Stochastic methods, deterministic approaches and hybrid approaches
+
+TV REGULARIZATION
+
+talk about tv reg and it's variations
+give TV regu use cases
+give example pictures
+
+SR CATEGORIES 3
+
+talk briefly about ML methods and mention limits
+talk about DL methods
+
+SRCNN
+
+talk about SRCNN and loss function
+mention limits
+
+OTHER DL METHODS
+
+elaborate other DL methods
+mention new loss functions
+talk about residuals
+
+SRGANS
+
+talk about GANs and SRGANs
+mention other applicaions
+

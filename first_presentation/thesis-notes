@@ -1,0 +1,16 @@
+csi movies
+create images dataset and downscale them
+use cnn to train them
+use mean square error to optimize (is it the right method?)
+structural similarity as loss function
+pre trained models
+using GANs or SRGAN uses VGG loss function
+balance between mean square error and ESRGANs using VGG
+
+tv regularization
+auto encoder
+do litterature research
+spend a month on it
+short presentation
+total variation to bring in loss function, works with tv regu
+what is a good loss function?

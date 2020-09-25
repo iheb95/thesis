@@ -1,0 +1,52 @@
+1. Thank you professor for having me. This is the first presentation about the topic single image super resolution.
+
+2. The reason i chose this topic is ofc the famous line in csi movies: "enhance it"
+it's when they take a low resolution image and get the original, more enhanced image out of it. and i've always wondered if that is possible.
+until i ran into the topic recently. and turns out that can be possible in a way.
+
+3. So in a nutshell, single image super resolution is getting a high resolution image out of a low resolution, degraded one. Not specifically the original version. just an appealing, better looking version of it.
+The causes of image degradation or blurring are hardware limitation of sensors or a high velocity in the moment of caption. So The use of SR techniques can be crucial in order to avoid the need for high resolution cameras or to overcome the velocity issues.
+
+4. Super resolution recently has taken it to further use cases such as enhancing old pictures and upscaling vintage video games.
+In the upcoming parts, i will present the different categories and methods used for Super resolution.
+
+5. Based on the application point of view single-image super-resolution approaches can be classified into three major categories – Interpolation-Based, Reconstruction-Based and Example-Based 
+First let's have a look at interpollation based super resolution techniques
+
+6. these are techniques involving the task of spreading the pixels and filling in the empty spaces to get a bigger image. Just techniques we can find in regular softwares like photoshop. We can mention nearest neighbor, where the empty pixels are filled with the exact same value as the nearest pixel. Bilinear interpolation which is a normal interpollation technique based on the weighted average. and the most used or iconic technique, bicubic which is a smoother interpolation using derivatives. this technique is the iconic go to technique when comparing further methods performances.
+
+7. The next category, namely reconstruction based SR. is a set of more in depth methods based on regularization for example. 
+
+8. We categorize the regularization approaches into three classes, namely: stochastic, deterministic, and hybrid approaches. Stochastic approaches use random variables in the form of probability distributions to provide stable estimates effectively and distinguish between possible solutions by utilizing a priori image model. While, deterministic approaches do not use any random variables but it can be formulated by choosing a variable to minimize the Lagrangian and solve the inverse problem by using the prior information about the solution which can be used to make the problem well posed. Lastly, hybrid approaches employ a combination of stochastic and deterministic approaches.
+
+9. to view this more closely, these are the most used techniques of each category. I won't be discussing all of them, just the technique we talked about which is TV regularization.
+
+10. basically TV regu is used for denoising. but it was also proven useful to handle other problematics like impainting and deblurring. which can be considered as super resolution in a way. The problem with TVR is that it is kinda weak in the processing of flat-image regions, which means regions in the image with low frequency. That is why it was improved into other techniques like spatial weighted TV in 2012, bilateral TV in 2013 and so further.
+plus the most recent paper i found that discusses using TV in super resolution dates from 2016.
+
+11. moving on to the final category, example based SR or simply put, the use of pre trained ML models.
+
+12. Here we have different machine learning techniques, i am not gonna discuss them, but jump right in to the last one which is deep leaning.
+
+13. Basically this method uses convolutional neural networks or CNN which is basically a network of connected nodes trained to build a more appealing output image out of a LR image, based on a set of pairs of images used for training. For this we can use a number of HR images, downscale them, and then use our CNN to get to a higher resolution version that we then compare to the original one to train our model through what we call the loss function. Here we use the L2 loss function for example.
+
+14. So we use our CNN here we train the model and we test it on a LR image. what we get here is this result, which is pretty close of what the bicubic method would generate. 
+
+15. This actually comes back to the choice of the loss function. This specifically affects sharp edges generation. here the generated sharp edge is a little bit shifted from the original one so the loss function gets really penalized for this. so what it tries to do is give this kinda blurry edge to prevent this.
+
+16. also we can see here that all these produced images are equidistant drom the original LR image if we use the L2 loss function. but they are clearly not equally appealing. and the first one obviously looks the best. 
+
+17. Other CNN problems are that it is composed of 3 layers and kinda hard to upscale.  
+in 2016, they were actually able to provide a slightly better result increasing the network depth to 20 in techniques like VDSR and DRCN. and up to 1000 layer using residual networks which we are gonna discuss later on.
+
+18. Well different loss functions have been used in recent researches, we can mention MSE ofc, The perceptual loss which is an MSE used in the VGG feature space (the vgg space is a transformation of the input image using a number of CNN layers and pooling layers), the texture loss function which is an MSE of correlation in the VGG feature space, and finally the adversarial loss function which is a function used in GANs or generative adversarial networks.
+
+19.to briefly explain what gans are about, this is a neural network composed of two seperate CNNs, the first one is called generator, this CNN simply taked an input image and produces HR output image. the second CNN is called the discriminator, which replaces the loss function and is able to tell whether the produced image is real or fake. 
+
+20. this method has proven very effective in solving SISR problems. This is due to the fact that in this method, the loss function is replaced by another neural network called discriminator, which is trained to distinguish between a HR and a LR image.
+
+21. in fact, if we compare this this method to the SRCNN method, the result is pretty much different and the output of the SRGAN method looks more real and appealing.
+
+22. now back to the issue concerning CNN layer scalability and learning time. this can be solved using residual networks. which is a kind of neural network that uses skip connections or shortcuts to jump over layers.
+
+23. Another method to add to this is the use of residual images instead of plain images. The reason behind this is that plain images is often dominated with low frequency features unnecessary to the learning phase, since high resolution is basically about sharp edges. this method enables us to ignore low frequency features and focus on high frequency features resulting from the difference the original and learned image. the learning phase is then able to implement the low pass filter to increase the output accuracy. 
